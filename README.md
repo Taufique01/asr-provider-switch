@@ -105,5 +105,6 @@ print(resp.json())
 pytest -q
 ```
 
+**Also you can use the test with html client. By uploading an audio file and get response.**
 
 
