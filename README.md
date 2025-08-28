@@ -14,7 +14,7 @@ It enables local transcription if OpenAI is unavailable or rate-limited, while k
   - `openai` → OpenAI Whisper API
   - `faster-whisper` → Local Whisper model
   - `auto` → Tries OpenAI first; falls back to local on failure
-- **OpenAI-style JSON output** (text + segments + words) for compatibility
+- **OpenAI-style JSON output** (e.g., text + segments) for compatibility
 - **Integration with existing SRT pipeline** without changing downstream callers
 - **Unit and integration tests** for reliability
 - **CPU-friendly local transcription** using faster-whisper
@@ -85,17 +85,15 @@ print(resp.json())
 
 ```json
 {
+  "duration": 5,
   "text": "Hello world",
+  "language": "english",
   "segments": [
     {
       "id": 0,
       "start": 0.12,
       "end": 1.87,
       "text": "Hello world",
-      "words": [
-        {"start": 0.12, "end": 0.32, "word": "Hello"},
-        {"start": 0.33, "end": 1.87, "word": "world"}
-      ]
     }
   ]
 }
